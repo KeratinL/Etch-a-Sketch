@@ -1,0 +1,46 @@
+Create a webpage with a 16x16 grid of square divs.
+-main challenge is finding a way to make it into a grid
+
+1. Make a container div.
+2. In javascript apend all child divs to container. //Will this manipulate the container node instead of including into the html file?
+    -Create all divs using javascript
+        -Create an array and each member creates a div?
+            -Create an array. 
+            -add to the array a member represented by a number
+                -use a for loop.
+            -array length should equal 256.
+            -take each member and create a function in a forEach loop to create a div that appends onto a the container 
+
+3. Create a rule in css to manipulate all divs. 
+4. Figure out how to make 256 divs line up in a 16x16 grid
+    -Does this mean i need to wrap divs of an exact size to specified width? 
+    -How do I keep a grid even if the window shrinks?
+    -Do I want the grid to shrink or fall down the page?
+    -Do I want the grid to maintain its shape and be cutoff if the window shrinks? 
+
+Set up a “hover” effect so that the grid divs change color when your mouse passes over them
+-figuring out how to "hover"
+-figuring out event listeners for beginning and ending of each div
+    -<div id="container">
+    <button id="1">Click Me</button>
+    <button id="2">Click Me</button>
+    <button id="3">Click Me</button>
+    ----------------------------------
+    </div>
+    // buttons is a node list. It looks and acts much like an array.
+    const buttons = document.querySelectorAll('button');
+
+    // we use the .forEach method to iterate through each button
+    buttons.forEach((button) => {
+
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        alert(button.id);
+    });
+    });
+
+Add a button to the top of the screen that will send the user a popup asking for the number of squares per side for the new grid. Once entered, the existing grid should be removed and a new grid should be generated in the same total space as before 
+-how to remove and generate another clear grid.
+
+Instead of just changing the color of a square from black to white (for example), have each pass through with the mouse change it to a completely random RGB value. Then try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
+-how to randomize color values and how to increment black levels.
