@@ -1,8 +1,8 @@
 
 function createArray(){
     const square = [];
-    //257 is one more than the needed 256 members
-    for(i = 0; i < 257; i++) {
+
+    for(i = 0; i < 256; i++) {
         square[i] += `${i}`;
     }
     return square;
@@ -10,12 +10,27 @@ function createArray(){
 
 const array = createArray();
 
+const container = document.querySelector('#container');
+
+container.setAttribute('style', 'display: flex; height: 800x; width: 800px; margin: auto; border: solid black;');
+container.style.flexWrap = 'wrap';
+
 array.forEach(() => {
     const div = document.createElement('div');
-    div.classList.add('box');
-    div.style.height = '100px';
-    div.style.width = '100px';
+    div.setAttribute('style', 'display: flex; flex: none; height: 50px; width: 50px; opacity: 0; transition: opacity 0.2s ease; background: grey;')
     container.appendChild(div);
+    div.addEventListener('mouseover', () => {
+        div.style.opacity = '1';
+    });
+    /*
+    div.addEventListener('transitionend', () => {
+        div.style.opacity = '0';
+    });
+    */
 });
+
+const playing = document.querySelectorAll('.box');
+playing
+
 
 
