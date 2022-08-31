@@ -1,24 +1,32 @@
+function getInput() {
+    let promptInput = prompt('Enter a whole number between 1 and 100', '');
+    return promptInput;
+}
 
-function createArray(){
+function createArray(promptInput){
     const square = [];
 
-    for(i = 0; i < 256; i++) {
+    for(i = 0; i < promptInput; i++) {
         square[i] += `${i}`;
     }
     return square;
 }
-
-const array = createArray();
+let promptInput = getInput();
+const array = createArray(promptInput * promptInput);
 
 const container = document.querySelector('#container');
 
-container.setAttribute('style', 'display: flex; height: 800x; width: 800px; margin: auto; border: solid black;');
+container.setAttribute('style', 'display: flex; height: 960px; width: 960px; margin: auto; border: solid black 2px;');
 container.style.flexWrap = 'wrap';
 
 array.forEach(() => {
     const div = document.createElement('div');
-    div.setAttribute('style', 'display: flex; flex: none; height: 50px; width: 50px; opacity: 0; transition: opacity 0.2s ease; background: grey;')
+    div.classList.add('box');
+    let box = document.querySelector('box');
     container.appendChild(div);
+    div.style.height = `${960 / promptInput + 0.01}px`;
+    div.style.width = `${960 / promptInput}px`;
+   
     div.addEventListener('mouseover', () => {
         div.style.opacity = '1';
     });
