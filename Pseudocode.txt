@@ -52,3 +52,23 @@ Add a button to the top of the screen that will send the user a popup asking for
 
 Instead of just changing the color of a square from black to white (for example), have each pass through with the mouse change it to a completely random RGB value. Then try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
 -how to randomize color values and how to increment black levels.
+
+Button to generate a new grid
+create a variable that holds a new node called 'button'
+
+append the button to the body.
+
+create a listening even for the button variable 
+
+listen for a mouseclick. Use an anonymous functin to call getInput
+and assign it to promptInput.
+
+Also, create an array that based on using createArray funtion, using
+promptInput squared as an argument. 
+
+create a global variable that will be iterated each time getUniqueClass is called.
+
+in getUniqueClass loop based on promptInput squared
+
+return `box${getUniqueClass()}`
+
