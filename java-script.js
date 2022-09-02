@@ -25,9 +25,7 @@ function removeAllChildNodes(parent){
 
 let opacity = 0.0;
 function addOpacity() {
-    for (i = 0; i < 10; i++) {
-        return opacity += 0.10;
-    }
+    return opacity += 0.10;
 }
 
 let uniqueClass = 0;
@@ -38,9 +36,6 @@ function createUniqueClass(){
     
 }
 
-
-
-console.log(Math.floor(Math.random()*16777215).toString(16));
 
 let promptInput = '';
 let array = [''];
@@ -57,12 +52,11 @@ button.addEventListener('click', () => {
     container.appendChild(div);
     div.style.height = `${960 / promptInput + 0.01}px`;
     div.style.width = `${960 / promptInput}px`;
-       
-    for (i = 0; i < elements.length; i++){
-        elements[i].addEventListener('mouseover', () => {
-            elements[i].style.opacity = `${addOpacity()}`;
+    div.style.background = 'grey';
+    div.style.opacity = 0;
+    div.addEventListener('mouseover', (event) => {
+        event.target.style.opacity = `${addOpacity()}`;
         })
-    }
     /*
     div.addEventListener('transitionend', () => {
         div.style.opacity = '0';
