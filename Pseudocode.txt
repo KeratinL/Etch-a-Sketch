@@ -72,3 +72,11 @@ in getUniqueClass loop based on promptInput squared
 
 return `box${getUniqueClass()}`
 
+.....
+
+Add opacity 0 to all box classes
+
+on event mouse over. Box class that is being hovered over adds 0.10 to opacity. 
+
+Limit opacity to value of one 
+

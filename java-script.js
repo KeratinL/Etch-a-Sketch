@@ -23,9 +23,15 @@ function removeAllChildNodes(parent){
     }
 }
 
+<<<<<<< HEAD
 function addOpacity(element1) {
     console.log(element1);
     element1.style.opacity += '0.10';
+=======
+let opacity = 0.0;
+function addOpacity() {
+    return opacity += 0.10;
+>>>>>>> e7328b81bfe811091a9f465080b760e315720322
 }
 
 let uniqueClass = 0;
@@ -36,7 +42,10 @@ function createUniqueClass(){
     
 }
 
+<<<<<<< HEAD
 console.log(Math.floor(Math.random()*16777215).toString(16));
+=======
+>>>>>>> e7328b81bfe811091a9f465080b760e315720322
 
 let promptInput = '';
 let array = [''];
@@ -53,12 +62,26 @@ button.addEventListener('click', () => {
     div.classList.add(`box${createUniqueClass()}`); // Create a unique class name for each div
     container.appendChild(div);
     div.style.height = `${960 / promptInput + 0.01}px`;
+<<<<<<< HEAD
     div.style.width = `${960 / promptInput}px`;    
     div.addEventListener('mouseenter', (event) => {
         const element = document.getElementsByClassName(event.target.classList);
         addOpacity(element[0]);
         console.log(event);
     })
+=======
+    div.style.width = `${960 / promptInput}px`;
+    div.style.background = 'grey';
+    div.style.opacity = 0;
+    div.addEventListener('mouseover', (event) => {
+        event.target.style.opacity = `${addOpacity()}`;
+        })
+    /*
+    div.addEventListener('transitionend', () => {
+        div.style.opacity = '0';
+    });
+    */
+>>>>>>> e7328b81bfe811091a9f465080b760e315720322
     });
 });
 
