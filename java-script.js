@@ -76,6 +76,8 @@ button.addEventListener('click', () => {
     div.addEventListener('mouseover', (event) => {
         event.target.style.opacity = `${addOpacity()}`;
         })
+
+    
     /*
     div.addEventListener('transitionend', () => {
         div.style.opacity = '0';
