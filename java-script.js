@@ -23,11 +23,9 @@ function removeAllChildNodes(parent){
     }
 }
 
-let opacity = 0.0;
-function addOpacity() {
-    for (i = 0; i < 10; i++) {
-        return opacity += 0.10;
-    }
+function addOpacity(element1) {
+    console.log(element1);
+    element1.style.opacity += '0.10';
 }
 
 let uniqueClass = 0;
@@ -37,8 +35,6 @@ function createUniqueClass(){
     return uniqueClass;
     
 }
-
-
 
 console.log(Math.floor(Math.random()*16777215).toString(16));
 
@@ -52,22 +48,17 @@ button.addEventListener('click', () => {
     array = createArray(promptInput * promptInput);
     array.forEach(() => {
     const div = document.createElement('div');
-    div.classList.add(`box${createUniqueClass()}`);    
-    elements = div.classList;
+    div.setAttribute('style', 'background: grey; opacity: 0;')
+    //div.classList.add('box');
+    div.classList.add(`box${createUniqueClass()}`); // Create a unique class name for each div
     container.appendChild(div);
     div.style.height = `${960 / promptInput + 0.01}px`;
-    div.style.width = `${960 / promptInput}px`;
-       
-    for (i = 0; i < elements.length; i++){
-        elements[i].addEventListener('mouseover', () => {
-            elements[i].style.opacity = `${addOpacity()}`;
-        })
-    }
-    /*
-    div.addEventListener('transitionend', () => {
-        div.style.opacity = '0';
-    });
-    */
+    div.style.width = `${960 / promptInput}px`;    
+    div.addEventListener('mouseenter', (event) => {
+        const element = document.getElementsByClassName(event.target.classList);
+        addOpacity(element[0]);
+        console.log(event);
+    })
     });
 });
 
