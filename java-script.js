@@ -62,7 +62,9 @@ button.addEventListener('click', () => {
     div.addEventListener('mouseenter', (event) => {
         const element = document.getElementsByClassName(event.target.classList);
         console.log(event.target);
+        element[0].style.background = `#${(Math.floor(Math.random()*16777215).toString(16))}`
         element[0].style.opacity = `${addOpacity(element[0])}`;
+
         //element[0].style.opacity = 0.40;
     })
 
