@@ -24,9 +24,12 @@ function removeAllChildNodes(parent){
 }
 
 function addOpacity(element) {
-    console.log(element);
-    element.style.opacity += '0.10';
-    console.log(element.style.opacity);
+    let numElement = +(element.style.opacity);
+    if (numElement === 1){
+        return numElement;
+    }
+    numElement += 0.10;
+    return numElement;
 }
 
 let uniqueClass = 0;
@@ -58,9 +61,9 @@ button.addEventListener('click', () => {
     div.style.width = `${960 / promptInput}px`;    
     div.addEventListener('mouseenter', (event) => {
         const element = document.getElementsByClassName(event.target.classList);
-        //addOpacity(element[0]);
-        element[0].style.opacity += 0.40;
-        console.log(event);
+        console.log(event.target);
+        element[0].style.opacity = `${addOpacity(element[0])}`;
+        //element[0].style.opacity = 0.40;
     })
 
     /*
