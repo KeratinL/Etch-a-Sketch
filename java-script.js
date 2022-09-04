@@ -14,7 +14,7 @@ function createArray(promptInput){
 
 const container = document.querySelector('#container');
 
-container.setAttribute('style', 'display: flex; flex: 1 1 0; height: 960px; width: 960px; margin: auto; border: solid black 2px;');
+container.setAttribute('style', 'display: flex; flex: 1 1 0; height: 960px; width: 960px; margin: auto; border: solid black 1px;');
 container.style.flexWrap = 'wrap';
 
 function removeAllChildNodes(parent){
@@ -40,9 +40,6 @@ function createUniqueClass(){
     
 }
 
-console.log(Math.floor(Math.random()*16777215).toString(16));
-
-
 let promptInput = '';
 let array = [''];
 const button = document.querySelector('button');
@@ -53,8 +50,9 @@ button.addEventListener('click', () => {
     array = createArray(promptInput * promptInput);
     array.forEach(() => {
     const div = document.createElement('div');
-    div.setAttribute('style', 'background: grey; opacity: 0;')
-    //div.classList.add('box');
+    div.style.boxSizing = 'border-box';
+    div.style.border = '1px solid black';
+    //div.setAttribute('style', 'boxSizing: border-box; background: grey; opacity: 0; border: 1px solid black;');
     div.classList.add(`box${createUniqueClass()}`); // Create a unique class name for each div
     container.appendChild(div);
     div.style.height = `${960 / promptInput + 0.01}px`;
