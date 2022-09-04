@@ -1,3 +1,10 @@
+function removeAllChildNodes(parent){
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+
 function getInput() {
     let promptInput = prompt('Enter a whole number between 1 and 100', '');
     return promptInput;
@@ -10,12 +17,6 @@ function createArray(promptInput){
         square[i] += `${i}`;
     }
     return square;
-}
-
-function removeAllChildNodes(parent){
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
 }
 
 let uniqueClass = 0;
@@ -36,7 +37,7 @@ function addOpacity(element) {
 }
 
 function addColor(div){
-    div.addEventListener('mouseenter', (event) => {
+    div.addEventListener('mouseover', (event) => {
         const element = document.getElementsByClassName(event.target.classList);
         console.log(event.target);
         element[0].style.background = `#${(Math.floor(Math.random()*16777215).toString(16))}`
@@ -44,22 +45,23 @@ function addColor(div){
     });
 }
 
+const container = document.querySelector('#container');
+container.setAttribute('style', 'display: flex; flex: 1 1 0; height: 960px; width: 960px; margin: auto; border: solid black 1px; flex-wrap: wrap;');
+
 function createGrid(grid){
 
     grid.forEach(() => {
         const div = document.createElement('div');
-        div.style.boxSizing = 'border-box'; // div.setAttribute would not accept boxSizing property
-        div.style.border = '1px solid black';
+        div.setAttribute('style', 'box-sizing: border-box; border: 1px solid black;');
+        /*div.style.boxSizing = 'border-box'; // div.setAttribute would not accept boxSizing property
+        div.style.border = '1px solid black';*/
         div.classList.add(`box${createUniqueClass()}`); // Create a unique class name for each div child of container
         container.appendChild(div);
-        div.style.height = `${960 / promptInput + 0.01}px`; // Add 0.01px for unfilled space in container
+        div.style.height = `${960 / promptInput + 0.01}px`; // Add 0.01px for column doesn't fill in container completely
         div.style.width = `${960 / promptInput}px`;    
         addColor(div);
     });
 }
-const container = document.querySelector('#container');
-container.setAttribute('style', 'display: flex; flex: 1 1 0; height: 960px; width: 960px; margin: auto; border: solid black 1px;');
-container.style.flexWrap = 'wrap';
 
 let promptInput = '';
 let array = [''];
